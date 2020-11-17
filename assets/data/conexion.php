@@ -18,21 +18,6 @@
         return $con;
        }
 
-        function insertarUsuario($user, $nombre,  $correo, $pass){
-            $con = $this->conectar(); //mandar llamar al metodo de conectar
-
-            $consulta = 'INSERT INTO usuario 
-                      (nom_usuario, nombre, correo, contrasena) /*contraseña cambiar por contrasena*/
-                     VALUES (:user, :nom, :email, :pass)'; 
-
-             $stmt = $con->prepare($consulta);
-             $stmt->execute(array(':user'=>$user,
-                                  ':nom'=>$nombre,
-                                  ':email'=>$correo,
-                                  ':pass'=>$pass));
-
-        }
-
         //Buscar usuarios registrados en la Base de Datos
         function buscarUsuario($user, $pass){
            $con = $this->conectar();
@@ -105,19 +90,38 @@
              return $registros;
         }
        
-        function guardarComentarios($nombre, $correo, $telefono, $coment){
-          $con = $this->conectar(); //mandar llamar al metodo de conectar
+        //Insertar comentarios en la Base de Datos
+        function insertarComentario($name, $email, $tel, $msg){
+            $con = $this->conectar(); //mandar llamar al metodo de conectar
 
-          $consulta = 'INSERT INTO contacto 
-                    (nombre, correo, telefono, comentario) 
-                     VALUES (:nom, :cor, :tel, :comen)'; 
-
-          $stmt = $con->prepare($consulta);
-          $stmt->execute(array(':nom'=>$nombre,
-                               ':cor'=>$correo,
-                               ':tel'=>$telefono,
-                               ':comen'=>$coment));
-        // return $rows;
+            $consulta = 'INSERT INTO contacto 
+                        (nombre_contacto, correo_contacto, telefono_contacto, mensaje_contacto)
+                         VALUES (:nombre, :correo, :telefono, :mensaje)'; 
+            $stmt = $con->prepare($consulta);
+            $rows = $stmt->execute(array(':nombre'=>$name,
+                                ':correo'=>$email,
+                                ':telefono'=>$tel,
+                                ':mensaje'=>$msg));
+            return $rows;
         }
+
+         //Registrar usuarios en la Base de Datos
+        function insertarUsuario($nombre, $apellidos, $usuario, $correo, $contra, $confirmar){
+            $con = $this->conectar(); //mandar llamar al metodo de conectar
+
+            $consulta = 'INSERT INTO usuario 
+                        (usuario, apellidos, usuario, correo, contrasenya, confirmarContrasenya)
+                         VALUES (:nombre, :apellidos, :usuario, :correo, :contra, :confirmar)'; 
+
+            $stmt = $con->prepare($consulta);
+            $rows = $stmt->execute(array(':nombre'=>$nombre,
+                                ':apellidos'=>$apellidos,
+                                ':usuario'=>$usuario,
+                                ':correo'=>$correo,
+                                ':contra'=>$contra,
+                                ':confirmar'=>$confirmar));
+            return $rows;
+        }
+
    }
    ?>

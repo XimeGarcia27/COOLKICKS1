@@ -5,10 +5,10 @@
 
     $name = $_POST['nombre'];
     $email = $_POST['correo'];
-    $asunto = $_POST['telefono'];
+    $tel = $_POST['telefono'];
     $msg = $_POST['mensaje'];
 
-   $comentario = $obj->guardarComentarios($name, $email, $telefono, $msg);
+   $comentario = $obj->insertarComentario($name, $email, $tel, $msg);
    if($comentario == 1){
         $datos = array('dato' => 'ok');
     }else{
