@@ -3,12 +3,11 @@
 
 	 $obj = new Conexion;
 
-	 $res =  $obj->buscarProductoM();
+     $res =  $obj->buscarProductoM();
  
 	 $temp = array();
  
 	 $temp =$res;
-
 ?>
 
 <!DOCTYPE html>
@@ -44,10 +43,11 @@
         <section id="catalogo">
             <div class="contenedor">
                 
-                <article class="mov">
-                   <a href="detallesM.php"><img src="assets/img/<?php print($temp[0]['imagen']);?>"></a> 
+                <article id="detalle" class="mov">
+                    <img src="assets/img/<?php print($temp[0]['imagen']);?>">
                     <h3><?php print  $temp[0]['nombre'];?></h3>
                     <p><?php print "$". $temp[0]['precio'];?></p>
+                    <button id="btndetalle" name="btndetalle" onclick="mostrarDetalle(<?php print $temp[0]['id'];?>">VER</button>
                 </article>
 
                 <article class="mov">
@@ -119,6 +119,7 @@
             </div>
         </section>
     </main>
+    <script src="./assets/js/detallesM.js"></script>
 </body>
 
 </html>

@@ -22,9 +22,9 @@
         function buscarUsuario($user, $pass){
            $con = $this->conectar();
 
-           $consulta = 'SELECT nom_usuario
-                        FROM usuario
-                        WHERE nom_usuario=:usuario
+           $consulta = 'SELECT nombre_usu
+                        FROM usuarios
+                        WHERE nombre_usu=:usuario
                         AND contrasena=:pass';
             $stmt = $con->prepare($consulta);
             $stmt->execute(array(':usuario'=>$user, ':pass'=>$pass));
@@ -62,10 +62,10 @@
             return $registros;
         }
 
-        function detallesM(){
+        function buscarLiqui(){
             $con = $this->conectar();
  
-            $consulta = 'SELECT * FROM calzadom';
+            $consulta = 'SELECT * FROM liquidacion';
  
             $stmt = $con->prepare($consulta);
             $stmt->execute();
@@ -74,20 +74,28 @@
              json_encode($registros, JSON_FORCE_OBJECT);
  
              return $registros;
+         }
+
+        function detallesM($id){
+            $con = $this->conectar();
+ 
+            $consulta = 'SELECT * FROM calzadom WHERE id=:id';
+ 
+            $stmt = $con->prepare($consulta);
+            $rows = $stmt ->execute(array(':id'=>$id)); 
+ 
+             return $rows;
         }
         
-        function detallesH(){
+        function detallesH($id){
             $con = $this->conectar();
  
-            $consulta = 'SELECT * FROM calzadom WHERE id=id';
+            $consulta = 'SELECT * FROM calzadom WHERE id=:id';
  
             $stmt = $con->prepare($consulta);
-            $stmt->execute();
-            $registros = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-          
-             json_encode($registros, JSON_FORCE_OBJECT);
+            $rows = $stmt ->execute(array(':id'=>$id)); 
  
-             return $registros;
+             return $rows;
         }
        
         //Insertar comentarios en la Base de Datos
@@ -95,7 +103,7 @@
             $con = $this->conectar(); //mandar llamar al metodo de conectar
 
             $consulta = 'INSERT INTO contacto 
-                        (nombre_contacto, correo_contacto, telefono_contacto, mensaje_contacto)
+                        (nombre, correo, tel, mensaje)
                          VALUES (:nombre, :correo, :telefono, :mensaje)'; 
             $stmt = $con->prepare($consulta);
             $rows = $stmt->execute(array(':nombre'=>$name,
@@ -105,12 +113,26 @@
             return $rows;
         }
 
+                //Insertar comentarios en la Base de Datos
+        function mostrarDetalles($name, $email, $tel, $msg){
+            $con = $this->conectar(); //mandar llamar al metodo de conectar
+                    $consulta = 'INSERT INTO contacto 
+                                (nombre_contacto, correo_contacto, telefono_contacto, mensaje_contacto)
+                                 VALUES (:nombre, :correo, :telefono, :mensaje)'; 
+                    $stmt = $con->prepare($consulta);
+                    $rows = $stmt->execute(array(':nombre'=>$name,
+                                        ':correo'=>$email,
+                                        ':telefono'=>$tel,
+                                        ':mensaje'=>$msg));
+            return $rows;
+        }
+
          //Registrar usuarios en la Base de Datos
         function insertarUsuario($nombre, $apellidos, $usuario, $correo, $contra, $confirmar){
             $con = $this->conectar(); //mandar llamar al metodo de conectar
 
-            $consulta = 'INSERT INTO usuario 
-                        (usuario, apellidos, usuario, correo, contrasenya, confirmarContrasenya)
+            $consulta = 'INSERT INTO usuarios
+                        (nombre, apellido, nombre_usu, correo, contrasena, confirCon)
                          VALUES (:nombre, :apellidos, :usuario, :correo, :contra, :confirmar)'; 
 
             $stmt = $con->prepare($consulta);
@@ -122,6 +144,5 @@
                                 ':confirmar'=>$confirmar));
             return $rows;
         }
-
    }
    ?>

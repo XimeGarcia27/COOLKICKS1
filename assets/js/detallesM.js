@@ -1,21 +1,22 @@
 $(document).ready(function() {
-    $("#btnRegistrar").click(function(e) {
+    $("#btndetalle").click(function(e) {
         e.preventDefault();
-        registrarUsuario();
-    }); //end #btnRegistrar
 
-    async function registrarUsuario() {
-        const datos = new FormData(document.getElementById('registrar'));
+        mostrarDetalle();
+    }); //end #btnComentarios
 
-        await fetch('./assets/data/registro.php', {
+    async function mostrarDetalle() {
+        const datos = new FormData(document.getElementById('detalle'));
+
+        await fetch('assets/data/detallesM.php', {
                 method: 'POST',
                 body: datos
             })
             .then(response => response.json()) //mandar llamar y enviar los datos
             .then(response => {
                 if (response.dato == 'ok') {
-                    location.href = "./index.html";
-                    alert("Te has registrado correctamente");
+                    location.href = "./detallesMu.php";
+                    //alert("Mensaje enviado correctamente");
                 } else {
                     alert("Datos no válidos");
                 }
@@ -23,5 +24,5 @@ $(document).ready(function() {
             .catch(err => {
                 console.log(err);
             });
-    } //end registrarUsuario
+    } //end mostrarDetalle
 });

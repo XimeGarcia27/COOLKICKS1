@@ -7,9 +7,11 @@
     $apellidos = $_POST['apellidosRegistro'];
     $usuario = $_POST['usuarioRegistro'];
     $correo = $_POST['emailRegistro'];
-    $contra = $_POST['contrasenyaRegistro'];
+    $contra = $_POST['contrasenaRegistro'];
     $confirmar = $_POST['confirmarRegistro'];
+
     $res = $obj->insertarUsuario($nombre, $apellidos, $usuario, $correo, $contra, $confirmar);
+    
     if($res == 1){
         $datos = array('dato' => 'ok');
     }else{

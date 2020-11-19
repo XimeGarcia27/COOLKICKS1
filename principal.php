@@ -20,10 +20,10 @@
             <label class="icon-menu" for="menu-bar"></label>
             <nav class="menu">
                 <a href="#conocenos">Conocenos</a>
-                <a href="Hombre.php">Hombres</a>
-                <a href="Mujeres.php">Mujeres</a>
-                <a href="formulario.php">Contactanos</a>
-                <a href="liquidacion.html">liquidaciones</a>
+                <a href="hombres.php">Hombres</a>
+                <a href="mujeres.php">Mujeres</a>
+                <a href="contacto.html">Contactanos</a>
+                <a href="liquidacion.php">liquidaciones</a>
             </nav>
         </div>
     </header>
