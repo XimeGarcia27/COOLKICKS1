@@ -1,5 +1,5 @@
 body {
-    background: -webkit-linear-gradient(left, #FF7F50, #F5F5DC);
+    background: -webkit-linear-gradient(left, Grey, DimGrey);
 }
 
 .contact-form {
@@ -55,7 +55,7 @@ body {
     border-radius: 1rem;
     padding: 1.5%;
     color: #fff;
-    background-color: #0062cc;
+    background-color: #04a10c;
     border: none;
     cursor: pointer;
 }

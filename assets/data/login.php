@@ -3,12 +3,12 @@
 
     $obj = new Conexion;
 
-    $usuario    = $_POST['inputUser'];
+    $user    = $_POST['inputUser'];
     $pass       = $_POST['inputPassword'];
 
     //$texto      = "Nombre: " . $usuario . " Contraseña: " . $pass;
 
-    $res = $obj->buscarUsuario($usuario, $pass);
+    $res = $obj->buscarUsuario($user, $pass);
 
     if($res == 1){
         $datos = array('dato' => 'ok');

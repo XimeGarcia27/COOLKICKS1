@@ -11,8 +11,30 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/jpg" href="assets/img/logo.jpg">
+    <link rel="stylesheet" href="assets/css/fontello.css">
+    <link rel="stylesheet" href="assets/css/estilospares.css">
+    <link rel="stylesheet" href="assets/css/estilos.css">
 
 </head>
+
+<header>
+    <div class="contenedor">
+        <h1>Coolkicks</h1>
+        <input type="checkbox" id="menu-bar">
+        <label class="icon-menu" for="menu-bar"></label>
+        <nav class="menu">
+            <a href="index.html">Inicio de Sesión/Registro</a>
+            <a href="#">Principal</a>
+            <a href="#">Hombres</a>
+            <a href="#">Mujeres</a>
+            <a href="#">Contactanos</a>
+        </nav>
+    </div>
+</header>
+<br>
+<br>
+<br>
 
 <body>
 
@@ -33,11 +55,15 @@
                 <input type="email" id="emailRegistro" name="emailRegistro" class="form-control" placeholder="Correo electrónico" required="required">
             </div>
             <div class="form-group">
-                <input type="password" id="contrasenyaRegistro" name="contrasenaRegistro" class="form-control" placeholder="Contraseña" required="required">
+                <input type="text" id="telefonoRegistro" name="telefonoRegistro" class="form-control" placeholder="Télefono" required="required">
             </div>
             <div class="form-group">
-                <input type="password" id="confirmarRegistro" name="confirmarRegistro" class="form-control" placeholder="Confirmar contraseña" required="required">
+                <input type="text" id="direccionRegistro" name="direccionRegistro" class="form-control" placeholder="Dirección" required="required">
             </div>
+            <div class="form-group">
+                <input type="password" id="contrasenyaRegistro" name="contrasenyaRegistro" class="form-control" placeholder="Contraseña" required="required">
+            </div>
+
             <!--<div class="form-group">
                 <label class="form-check-label"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
             </div> -->
@@ -46,6 +72,7 @@
             </div>
         </form>
         <div class="text-center">¿Ya tienes una cuenta? <a href="index.html">Inicia Sesión</a></div>
+        <p class="mt-3 mb-3 text-muted foot">&copy; 2020 | Coolkicks</p>
     </div>
 
     <!-- Optional JavaScript -->

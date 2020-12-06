@@ -20,24 +20,23 @@
 
         //Buscar usuarios registrados en la Base de Datos
         function buscarUsuario($user, $pass){
+            $con = $this->conectar();
+            $consulta = 'SELECT name_usu
+                         FROM clientes	
+                         WHERE name_usu=:user
+                         AND contrasena=:pass';
+             $stmt = $con->prepare($consulta);
+             $stmt->execute(array(':user'=>$user,':pass'=>$pass));
+             $registro = $stmt->fetchALL(PDO::FETCH_ASSOC);            
+             $numRegistros = count($registro);
+ 
+             return $numRegistros;
+         }
+
+        function buscarProducto(){
            $con = $this->conectar();
 
-           $consulta = 'SELECT nombre_usu
-                        FROM usuarios
-                        WHERE nombre_usu=:usuario
-                        AND contrasena=:pass';
-            $stmt = $con->prepare($consulta);
-            $stmt->execute(array(':usuario'=>$user, ':pass'=>$pass));
-            $registro = $stmt->fetchALL(PDO::FETCH_ASSOC);            
-            $numRegistros = count($registro);
-
-            return $numRegistros;
-        }
-
-        function buscarProductoH(){
-           $con = $this->conectar();
-
-           $consulta = 'SELECT * FROM calzadoh';
+           $consulta = 'SELECT * FROM mis_productos';
 
            $stmt = $con->prepare($consulta);
            $stmt->execute();
@@ -47,26 +46,12 @@
 
             return $registros;
         }
-    
-        function buscarProductoM(){
-           $con = $this->conectar();
-
-           $consulta = 'SELECT * FROM calzadom';
-
-           $stmt = $con->prepare($consulta);
-           $stmt->execute();
-           $registros = $stmt->fetchALL(PDO::FETCH_ASSOC); 
-         
-            json_encode($registros, JSON_FORCE_OBJECT);
-
-            return $registros;
-        }
-
-        function buscarLiqui(){
+        
+        function detalles(){
             $con = $this->conectar();
  
-            $consulta = 'SELECT * FROM liquidacion';
- 
+            $consulta = 'SELECT * FROM mis_productos WHERE id='.$_GET['id'];
+
             $stmt = $con->prepare($consulta);
             $stmt->execute();
             $registros = $stmt->fetchALL(PDO::FETCH_ASSOC); 
@@ -74,28 +59,7 @@
              json_encode($registros, JSON_FORCE_OBJECT);
  
              return $registros;
-         }
 
-        function detallesM($id){
-            $con = $this->conectar();
- 
-            $consulta = 'SELECT * FROM calzadom WHERE id=:id';
- 
-            $stmt = $con->prepare($consulta);
-            $rows = $stmt ->execute(array(':id'=>$id)); 
- 
-             return $rows;
-        }
-        
-        function detallesH($id){
-            $con = $this->conectar();
- 
-            $consulta = 'SELECT * FROM calzadom WHERE id=:id';
- 
-            $stmt = $con->prepare($consulta);
-            $rows = $stmt ->execute(array(':id'=>$id)); 
- 
-             return $rows;
         }
        
         //Insertar comentarios en la Base de Datos
@@ -113,35 +77,22 @@
             return $rows;
         }
 
-                //Insertar comentarios en la Base de Datos
-        function mostrarDetalles($name, $email, $tel, $msg){
-            $con = $this->conectar(); //mandar llamar al metodo de conectar
-                    $consulta = 'INSERT INTO contacto 
-                                (nombre_contacto, correo_contacto, telefono_contacto, mensaje_contacto)
-                                 VALUES (:nombre, :correo, :telefono, :mensaje)'; 
-                    $stmt = $con->prepare($consulta);
-                    $rows = $stmt->execute(array(':nombre'=>$name,
-                                        ':correo'=>$email,
-                                        ':telefono'=>$tel,
-                                        ':mensaje'=>$msg));
-            return $rows;
-        }
-
          //Registrar usuarios en la Base de Datos
-        function insertarUsuario($nombre, $apellidos, $usuario, $correo, $contra, $confirmar){
+         function insertarUsuario($nombre, $apellidos, $usuario, $correo, $telefono, $direccion, $contra){
             $con = $this->conectar(); //mandar llamar al metodo de conectar
 
-            $consulta = 'INSERT INTO usuarios
-                        (nombre, apellido, nombre_usu, correo, contrasena, confirCon)
-                         VALUES (:nombre, :apellidos, :usuario, :correo, :contra, :confirmar)'; 
+            $consulta = 'INSERT INTO clientes
+                        (names,apellido,name_usu,email,phone,addres,contrasena)
+                         VALUES (:nombre, :apellidos, :usuario, :correo, :telefono, :direccion, :contra)'; 
 
             $stmt = $con->prepare($consulta);
             $rows = $stmt->execute(array(':nombre'=>$nombre,
                                 ':apellidos'=>$apellidos,
                                 ':usuario'=>$usuario,
                                 ':correo'=>$correo,
-                                ':contra'=>$contra,
-                                ':confirmar'=>$confirmar));
+                                ':telefono'=>$telefono,
+                                ':direccion'=>$direccion,
+                                ':contra'=>$contra));
             return $rows;
         }
    }

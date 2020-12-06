@@ -22,9 +22,10 @@ body {
 }
 
 .social_icon span {
+    text-align: right;
     font-size: 60px;
-    margin-left: 10px;
-    color: #0fbe43;
+    margin-left: 5px;
+    color: MediumAquaMarine;
 }
 
 .social_icon span:hover {
@@ -82,6 +83,7 @@ input:focus {
 
 .links a {
     margin-left: 4px;
+    color: LightYellow;
 }
 
 .color_btn {

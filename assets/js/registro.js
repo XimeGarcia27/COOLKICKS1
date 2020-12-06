@@ -7,7 +7,7 @@ $(document).ready(function() {
     async function registrarUsuario() {
         const datos = new FormData(document.getElementById('registrar'));
 
-        await fetch('./assets/data/registro.php', {
+        await fetch('assets/data/registro.php', {
                 method: 'POST',
                 body: datos
             })

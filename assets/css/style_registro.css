@@ -2,7 +2,7 @@ body {
     color: #fff;
     background: #63738a;
     font-family: 'Roboto', sans-serif;
-    background: -webkit-linear-gradient(left, #FF7F50, #F5F5DC);
+    background: -webkit-linear-gradient(left, Grey, DimGrey);
 }
 
 .form-control {
@@ -112,4 +112,8 @@ body {
 .color_btn {
     color: #FFFFFF;
     background-color: #FFC312;
+}
+
+.foot {
+    text-align: center;
 }

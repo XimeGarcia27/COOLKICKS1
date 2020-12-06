@@ -3,7 +3,7 @@
 
 	 $obj = new Conexion;
 
-     $res =  $obj->buscarProductoM();
+     $res =  $obj->buscarProducto();
  
 	 $temp = array();
  
@@ -25,101 +25,115 @@
 <body>
     <header>
         <div class="contenedor">
-            <a href="Index.html">
                 <h1>Coolkicks</h1>
-            </a>
             <input type="checkbox" id="menu-bar">
-            <label class="icon-menu" for="menu-bar"></label>
+            <label class="icoan-menu" for="menu-bar"></label>
             <nav class="menu">
-                <a href="Hombre.php">Hombres</a>
-                <a href="Mujeres.php">Mujeres</a>
-                <a href="formulario.php">Contactanos</a>
-                <a href="liquidacion.html">liquidaciones</a>
+                <a href="index.html">Inicio de Sesión/Registro</a>
+                <a href="principal.php">Principal</a>
+                <a href="hombres.php">Hombres</a>
+                <a href="mujeres.php">Mujeres</a>
+                <a href="contacto.html">Contactanos</a>
+                <a href="VerCarta.php"><img class="imgBarra" src="assets/img/carrito.png"></a>
             </nav>
         </div>
     </header>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <main>
         <section id="catalogo">
             <div class="contenedor">
-                
-                <article id="detalle" class="mov">
-                    <img src="assets/img/<?php print($temp[0]['imagen']);?>">
-                    <h3><?php print  $temp[0]['nombre'];?></h3>
-                    <p><?php print "$". $temp[0]['precio'];?></p>
-                    <button id="btndetalle" name="btndetalle" onclick="mostrarDetalle(<?php print $temp[0]['id'];?>">VER</button>
+
+                <article class="mov">
+                <a href="detalles.php?id=<?php print $temp[22]['id'];?>">
+                 <img src="assets/img/<?php print($temp[22]['img']);?>"></a> 
+                    <h3><?php print  $temp[22]['name'];?></h3>
+                    <p><?php print "$". $temp[22]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                <a href="detallesM.php"><img src="assets/img/<?php print($temp[1]['imagen']);?>"></a> 
-                    <h3><?php print  $temp[1]['nombre'];?></h3>
-                    <p><?php print "$". $temp[1]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[23]['id'];?>">
+                 <img src="assets/img/<?php print($temp[23]['img']);?>"></a> 
+                    <h3><?php print  $temp[23]['name'];?></h3>
+                    <p><?php print "$". $temp[23]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                <a href="detallesM.php"><img src="assets/img/<?php print($temp[2]['imagen']);?>"></a> 
-                    <h3><?php print  $temp[2]['nombre'];?></h3>
-                    <p><?php print "$". $temp[2]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[24]['id'];?>">
+                 <img src="assets/img/<?php print($temp[24]['img']);?>"></a> 
+                    <h3><?php print  $temp[24]['name'];?></h3>
+                    <p><?php print "$". $temp[24]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[3]['imagen']);?>">
-                    <h3><?php print  $temp[3]['nombre'];?></h3>
-                    <p><?php print "$". $temp[3]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[25]['id'];?>">
+                 <img src="assets/img/<?php print($temp[28]['img']);?>"></a> 
+                    <h3><?php print  $temp[25]['name'];?></h3>
+                    <p><?php print "$". $temp[25]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[4]['imagen']);?>">
-                    <h3><?php print  $temp[4]['nombre'];?></h3>
-                    <p><?php print "$". $temp[4]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[26]['id'];?>">
+                 <img src="assets/img/<?php print($temp[26]['img']);?>"></a> 
+                    <h3><?php print  $temp[26]['name'];?></h3>
+                    <p><?php print "$". $temp[26]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[5]['imagen']);?>">
-                    <h3><?php print  $temp[5]['nombre'];?></h3>
-                    <p><?php print "$". $temp[5]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[27]['id'];?>">
+                 <img src="assets/img/<?php print($temp[27]['img']);?>"></a> 
+                    <h3><?php print  $temp[27]['name'];?></h3>
+                    <p><?php print "$". $temp[27]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[6]['imagen']);?>">
-                    <h3><?php print  $temp[6]['nombre'];?></h3>
-                    <p><?php print "$". $temp[6]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[29]['id'];?>">
+                 <img src="assets/img/<?php print($temp[29]['img']);?>"></a> 
+                    <h3><?php print  $temp[29]['name'];?></h3>
+                    <p><?php print "$". $temp[29]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[7]['imagen']);?>">
-                    <h3><?php print  $temp[7]['nombre'];?></h3>
-                    <p><?php print "$". $temp[7]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[30]['id'];?>">
+                 <img src="assets/img/<?php print($temp[30]['img']);?>"></a> 
+                    <h3><?php print  $temp[30]['name'];?></h3>
+                    <p><?php print "$". $temp[30]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[8]['imagen']);?>">
-                    <h3><?php print  $temp[8]['nombre'];?></h3>
-                    <p><?php print "$". $temp[8]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[31]['id'];?>">
+                 <img src="assets/img/<?php print($temp[31]['img']);?>"></a> 
+                    <h3><?php print  $temp[31]['name'];?></h3>
+                    <p><?php print "$". $temp[31]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[9]['imagen']);?>">
-                    <h3><?php print  $temp[9]['nombre'];?></h3>
-                    <p><?php print "$". $temp[9]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[32]['id'];?>">
+                 <img src="assets/img/<?php print($temp[32]['img']);?>"></a> 
+                    <h3><?php print  $temp[32]['name'];?></h3>
+                    <p><?php print "$". $temp[32]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[10]['imagen']);?>">
-                    <h3><?php print  $temp[10]['nombre'];?></h3>
-                    <p><?php print "$". $temp[10]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[33]['id'];?>">
+                 <img src="assets/img/<?php print($temp[33]['img']);?>"></a> 
+                    <h3><?php print  $temp[33]['name'];?></h3>
+                    <p><?php print "$". $temp[33]['price'];?></p>
                 </article>
 
                 <article class="mov">
-                    <img src="assets/img/<?php print($temp[11]['imagen']);?>">
-                    <h3><?php print  $temp[11]['nombre'];?></h3>
-                    <p><?php print "$". $temp[11]['precio'];?></p>
+                <a href="detalles.php?id=<?php print $temp[34]['id'];?>">
+                 <img src="assets/img/<?php print($temp[34]['img']);?>"></a> 
+                    <h3><?php print  $temp[34]['name'];?></h3>
+                    <p><?php print "$". $temp[34]['price'];?></p>
                 </article>
 
             </div>
         </section>
     </main>
-    <script src="./assets/js/detallesM.js"></script>
 </body>
 
 </html>
